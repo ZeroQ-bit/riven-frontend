@@ -1532,7 +1532,7 @@ export interface components {
              * Service
              * @enum {string}
              */
-            service: "realdebrid" | "alldebrid" | "debridlink";
+            service: "realdebrid" | "alldebrid" | "debridlink" | "torbox" | "premiumize";
             /** Username */
             username?: string | null;
             /** Email */
@@ -1606,6 +1606,10 @@ export interface components {
             debrid_link?: components["schemas"]["DebridLinkModel"];
             /** @description AllDebrid downloader configuration */
             all_debrid?: components["schemas"]["AllDebridModel"];
+            /** @description TorBox downloader configuration */
+            torbox?: components["schemas"]["TorBoxModel"];
+            /** @description Premiumize downloader configuration */
+            premiumize?: components["schemas"]["PremiumizeModel"];
         };
         /** EmbyLibraryModel */
         EmbyLibraryModel: {
@@ -2484,6 +2488,21 @@ export interface components {
             /** @description Subtitle post-processing configuration */
             subtitle?: components["schemas"]["SubtitleConfig"];
         };
+        /** PremiumizeModel */
+        PremiumizeModel: {
+            /**
+             * Enabled
+             * @description Enable Premiumize
+             * @default false
+             */
+            enabled: boolean;
+            /**
+             * Api Key
+             * @description Premiumize API key
+             * @default
+             */
+            api_key: string;
+        };
         /** ProwlarrConfig */
         ProwlarrConfig: {
             /**
@@ -2879,6 +2898,10 @@ export interface components {
             item_id: number;
             /** Media Type */
             media_type?: ("movie" | "tv") | null;
+            /** Requested Season */
+            requested_season?: number | null;
+            /** Requested Episode */
+            requested_episode?: number | null;
             /** Tmdb Id */
             tmdb_id?: string | null;
             /** Tvdb Id */
@@ -3037,6 +3060,21 @@ export interface components {
         SubtitleProvidersDict: {
             /** @description OpenSubtitles provider configuration */
             opensubtitles?: components["schemas"]["SubtitleProviderConfig"];
+        };
+        /** TorBoxModel */
+        TorBoxModel: {
+            /**
+             * Enabled
+             * @description Enable TorBox
+             * @default false
+             */
+            enabled: boolean;
+            /**
+             * Api Key
+             * @description TorBox API key
+             * @default
+             */
+            api_key: string;
         };
         /**
          * TorrentContainer

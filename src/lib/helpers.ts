@@ -94,6 +94,8 @@ export const getServiceDisplayName = (service: string): string => {
             return "TorBox";
         case "alldebrid":
             return "AllDebrid";
+        case "premiumize":
+            return "Premiumize";
         default:
             return service;
     }
